@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://br2qfrwmo156y"]
+
+[ext_resource type="Script" uid="uid://b8lg0gxhg61q4" path="res://Scenes/Objects/bottle.gd" id="1_ty10h"]
+[ext_resource type="Texture2D" uid="uid://c3y5pkkfi2tbf" path="res://Art/Items/Bottle_1.png" id="1_wk68g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b0t5e"]
+radius = 40.3113
+
+[node name="Bottle" type="Area2D"]
+script = ExtResource("1_ty10h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b0t5e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("1_wk68g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

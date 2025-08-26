@@ -1,0 +1,104 @@
+[gd_scene load_steps=2 format=3 uid="uid://p5wqmn6yea2g"]
+
+[ext_resource type="Texture2D" uid="uid://b1qmp84re4tdv" path="res://Art/UI/Shop test.png" id="1_4ra1n"]
+
+[node name="Shop UI" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4ra1n")
+
+[node name="Shop" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="Shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -657.0
+offset_top = -305.0
+offset_right = 657.0
+offset_bottom = 305.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Shop/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "SHOP"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Shop/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 41
+text = "Cose"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Shop/PanelContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Shop/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Your money"
+
+[node name="Label3" type="Label" parent="Shop/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "0.00"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Shop/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Button" type="Button" parent="Shop/PanelContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+text = "Buy"
+
+[node name="Button2" type="Button" parent="Shop/PanelContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+text = "Buy"
+
+[node name="Button3" type="Button" parent="Shop/PanelContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+text = "Buy"
+
+[node name="Button4" type="Button" parent="Shop/PanelContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+text = "Buy"
+
+[node name="Button5" type="Button" parent="Shop/PanelContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+text = "Buy"

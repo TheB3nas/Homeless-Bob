@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnxbjagy4jhjn"]
+
+[ext_resource type="Script" uid="uid://d21bjk41my54b" path="res://Deposit machine.gd" id="1_4tuk2"]
+[ext_resource type="Texture2D" uid="uid://bht8plorcagai" path="res://Art/Objects/Interactive objects/Deposit machine/Deposit_1.png" id="2_1y2mj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sek2c"]
+size = Vector2(224, 307)
+
+[node name="Deposit machine" type="Area2D"]
+z_index = -150
+script = ExtResource("1_4tuk2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-44, 37.5)
+shape = SubResource("RectangleShape2D_sek2c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1y2mj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

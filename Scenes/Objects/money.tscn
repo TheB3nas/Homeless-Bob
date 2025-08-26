@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://yulrejuc5qun"]
+
+[ext_resource type="Texture2D" uid="uid://dukp6e3egpmq7" path="res://Art/Money/Cent.png" id="1_hirms"]
+[ext_resource type="Script" uid="uid://cydclck3kkb2h" path="res://Scenes/Objects/money.gd" id="1_se6rp"]
+[ext_resource type="Texture2D" uid="uid://cg3hnxds1hlp4" path="res://Art/Money/10 Cents.png" id="2_b02so"]
+[ext_resource type="Texture2D" uid="uid://c7li5eseyryr7" path="res://Art/Money/1 Eur.png" id="3_yy1kv"]
+[ext_resource type="Texture2D" uid="uid://dedo875l2gtuq" path="res://Art/Money/5 Eur.png" id="4_qy0h1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wr7js"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hirms")
+}],
+"loop": false,
+"name": &"1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b02so")
+}],
+"loop": false,
+"name": &"2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_yy1kv")
+}],
+"loop": false,
+"name": &"3",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qy0h1")
+}],
+"loop": false,
+"name": &"4",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n2hr3"]
+radius = 40.3113
+
+[sub_resource type="Animation" id="Animation_l844u"]
+resource_name = "Float"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7e1yb"]
+_data = {
+&"Float": SubResource("Animation_l844u")
+}
+
+[node name="Money" type="Area2D"]
+script = ExtResource("1_se6rp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wr7js")
+animation = &"1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n2hr3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7e1yb")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch5fy0lyiy1ve"]
+
+[ext_resource type="Texture2D" uid="uid://dd67usx4l1omc" path="res://Art/Objects/Buildings/Kebab shop/Kebab shop BG.png" id="1_7c14q"]
+[ext_resource type="Texture2D" uid="uid://br1n6vo0ixxgn" path="res://Art/Objects/Buildings/Kebab shop/Kebab shop owner.png" id="2_bjbol"]
+[ext_resource type="Texture2D" uid="uid://cn5wbqy6etr0s" path="res://Art/Objects/Buildings/Kebab shop/Kebab shop.png" id="3_jl7vq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5sowm"]
+size = Vector2(500, 378)
+
+[node name="Kebab kiosk" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_5sowm")
+
+[node name="BG" type="Sprite2D" parent="."]
+texture = ExtResource("1_7c14q")
+
+[node name="Owner" type="Sprite2D" parent="."]
+texture = ExtResource("2_bjbol")
+
+[node name="Kebab" type="Sprite2D" parent="."]
+texture = ExtResource("3_jl7vq")

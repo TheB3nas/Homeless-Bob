@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://byhmlclihiles"]
+
+[ext_resource type="Script" uid="uid://ccmiph3y1dorr" path="res://NPC_Spawn.gd" id="1_7ybt4"]
+[ext_resource type="Texture2D" uid="uid://ditp76ndt0ywj" path="res://Art/NPC/NPC walk/NPC walk_00000.png" id="2_4wxkb"]
+
+[node name="NPC_Spawn" type="Node2D" groups=["Spawner"]]
+script = ExtResource("1_7ybt4")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4wxkb")

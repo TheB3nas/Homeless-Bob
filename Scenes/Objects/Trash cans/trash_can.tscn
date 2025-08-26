@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=3 uid="uid://b57wnnferp8q3"]
+
+[ext_resource type="Script" uid="uid://csc0a4v5f8ven" path="res://Trash can.gd" id="1_eunbd"]
+[ext_resource type="Texture2D" uid="uid://bwfhd23nut86u" path="res://Art/Objects/Interactive objects/Trash can/Can 1.png" id="2_ouacv"]
+[ext_resource type="Texture2D" uid="uid://c0kv26fau6wdn" path="res://Art/Objects/Interactive objects/Trash can/Can 2.png" id="3_x6oo2"]
+[ext_resource type="Texture2D" uid="uid://1v1xcjb76rpe" path="res://Art/Objects/Interactive objects/Trash can/Can 3.png" id="4_tu0g7"]
+[ext_resource type="Texture2D" uid="uid://dqe6md1stsowp" path="res://Art/Objects/Interactive objects/Trash can/Can 4.png" id="5_hou1p"]
+[ext_resource type="Texture2D" uid="uid://dqa011x6ucod5" path="res://Art/UI/Textbox.png" id="6_ao888"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlfx4"]
+size = Vector2(156, 145)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ihy2r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ouacv")
+}],
+"loop": false,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_x6oo2")
+}],
+"loop": false,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tu0g7")
+}],
+"loop": false,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hou1p")
+}],
+"loop": false,
+"name": &"4",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_e5ba6"]
+resource_name = "Hide"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprites:rotation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0872665, 0.0, 0.0872665, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tvlqi"]
+_data = {
+&"Hide": SubResource("Animation_e5ba6")
+}
+
+[node name="Trash can" type="Area2D" groups=["Trash_can"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_eunbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -82.5)
+shape = SubResource("RectangleShape2D_xlfx4")
+
+[node name="Sprites" type="Node2D" parent="."]
+position = Vector2(0, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprites"]
+position = Vector2(0, -113)
+sprite_frames = SubResource("SpriteFrames_ihy2r")
+animation = &"1"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Sprites"]
+visible = false
+z_index = 900
+offset_left = -76.0
+offset_top = -357.0
+offset_right = 78.0
+offset_bottom = -282.0
+texture = ExtResource("6_ao888")
+patch_margin_left = 45
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 45
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Sprites/NinePatchRect"]
+layout_mode = 2
+offset_right = 160.0
+offset_bottom = 57.0
+mouse_filter = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+
+[node name="Label" type="Label" parent="Sprites/NinePatchRect/MarginContainer"]
+modulate = Color(0.0156863, 0.0156863, 0.0156863, 1)
+layout_mode = 2
+text = "\"w\" to hide
+\"space\" to search"
+horizontal_alignment = 1
+
+[node name="Animation" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
+libraries = {
+"": SubResource("AnimationLibrary_tvlqi")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

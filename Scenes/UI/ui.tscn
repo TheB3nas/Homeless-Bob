@@ -1,0 +1,246 @@
+[gd_scene load_steps=9 format=3 uid="uid://cilunx2oc2toq"]
+
+[ext_resource type="Texture2D" uid="uid://dedo875l2gtuq" path="res://Art/Money/5 Eur.png" id="1_c2tqq"]
+[ext_resource type="Script" uid="uid://bbnw7f0kcm0pr" path="res://Scenes/UI/ui.gd" id="1_s7plq"]
+[ext_resource type="Texture2D" uid="uid://vq3vdf5na4xi" path="res://Art/UI/Wallet UI.png" id="2_dnvh6"]
+[ext_resource type="Texture2D" uid="uid://c3y5pkkfi2tbf" path="res://Art/Items/Bottle_1.png" id="2_dw1mv"]
+[ext_resource type="Texture2D" uid="uid://dplwfoswy055r" path="res://Art/UI/Phone UI.png" id="5_ox0cn"]
+[ext_resource type="PackedScene" uid="uid://p5wqmn6yea2g" path="res://Scenes/UI/shop_ui.tscn" id="6_64ue3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dgor"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sj3at"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_s7plq")
+
+[node name="Money" type="PanelContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -308.0
+offset_top = -206.0
+offset_right = -23.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0dgor")
+metadata/_edit_group_ = true
+
+[node name="Wallet UI" type="TextureRect" parent="Money"]
+layout_mode = 2
+texture = ExtResource("2_dnvh6")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Money"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 120
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Money/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Money/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Money/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_dw1mv")
+stretch_mode = 5
+
+[node name="Spacer" type="Control" parent="Money/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Money/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Money/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Money/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_c2tqq")
+stretch_mode = 5
+
+[node name="Spacer" type="Control" parent="Money/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Money/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0.1"
+
+[node name="Police left" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = -46.0
+offset_right = 145.0
+offset_bottom = 46.0
+grow_vertical = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Police left"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Police left/MarginContainer"]
+layout_mode = 2
+
+[node name="Police" type="Label" parent="Police left/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+text = "Police!"
+
+[node name="Timer" type="Label" parent="Police left/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 31
+text = "5
+"
+
+[node name="Police right" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -46.0
+offset_right = -34.0
+offset_bottom = 46.0
+grow_horizontal = 0
+grow_vertical = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Police right"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Police right/MarginContainer"]
+layout_mode = 2
+
+[node name="Police" type="Label" parent="Police right/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+text = "Police!"
+
+[node name="Timer" type="Label" parent="Police right/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 31
+text = "5
+"
+
+[node name="Police timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="Clock" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -306.0
+offset_right = 149.0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Clock"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -261.0
+offset_right = 134.0
+offset_bottom = -12.0
+grow_vertical = 0
+texture = ExtResource("5_ox0cn")
+expand_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Clock/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.342
+offset_left = -49.0
+offset_top = 45.0
+offset_right = 52.0
+offset_bottom = 31.046
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sj3at")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Clock/TextureRect/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "07:00"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="Clock"]
+wait_time = 0.5
+autostart = true
+
+[node name="Shop UI" parent="." instance=ExtResource("6_64ue3")]
+visible = false
+
+[node name="caught_screen" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="caught_screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.439049, 0.439049, 0.439049, 1)
+
+[node name="Button" type="Button" parent="caught_screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Try Again"
+
+[connection signal="timeout" from="Police timer" to="." method="_on_police_timer_timeout"]
+[connection signal="timeout" from="Clock/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="caught_screen/Button" to="." method="_on_button_pressed"]
